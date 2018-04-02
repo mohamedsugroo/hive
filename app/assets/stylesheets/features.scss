@@ -1,3 +1,40 @@
-// Place all the styles related to the features controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.avatar_features {
+	width: 40px;
+	height: 40px;
+	float: left;
+	border-radius: 100%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.user_profile {
+	width: 100%;
+	height: 450px;
+	background: #5f27cd;
+	color: white;
+
+	.cover_photo {
+	    width: 100%;
+	    height: 350px;
+	    margin-bottom: 20px;
+		background-position: top;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+}
+
+.features {
+	width: 100%;
+	height: 50px;
+}
+
+.text-align-right {
+	text-align: right;
+}
+
+
+.videoContainer {
+	// background: green;
+	margin-bottom: 20px;
+}

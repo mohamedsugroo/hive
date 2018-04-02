@@ -1,62 +1,70 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<%= image_tag @artist.avatar.url(:large)%>
-<p>
-  <strong>First name:</strong>
-  <%= @artist.first_name %>
-</p>
+<div class="row">
+  
+  <div class="col-md-4">
+    <div class="user_profile">
+      <div class="cover_photo" style=" background-image: url(<%= @artist.avatar.url(:large)%>);">        
+      </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @artist.last_name %>
-</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h3><%= @artist.stage_name %></h3>
+            <%= @artist.full_name %>
+          </div>
+          <div class="col-md-5 text-align-right">
+            <h4><%= @artist.impressionist_count %></h4>
+            VIEWS
+          </div>
+        </div>
 
-<p>
-  <strong>Stage name:</strong>
-  <%= @artist.stage_name %>
-</p>
+      </div>
+    </div>
 
-<p>
-  <strong>Birth place:</strong>
-  <%= @artist.birth_place %>
-</p>
+    <br> <br>
 
-<p>
-  <strong>Birth date:</strong>
-  <%= @artist.birth_date %>
-</p>
+    <% if @artist.birth_place.length > 2 %>
+    
+      <p>
+        <strong>Birth place:</strong>
+        <%= @artist.birth_place %>
+      </p>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @artist.bio %>
-</p>
+    <% end %>
 
-<p>
-  <strong>Active status:</strong>
-  <%= @artist.active_status %>
-</p>
+    
 
-<p>
-  <strong>Active from:</strong>
-  <%= @artist.active_from %>
-</p>
+    <p>
+      <strong>Birth date</strong> <br>
+      <%= @artist.birth_date %>
+    </p>
 
-<p>
-  <strong>Active to:</strong>
-  <%= @artist.active_to %>
-</p>
+    <p>
+      <%= @artist.bio %>
+    </p>
 
-<hr />
 
-<div class="realated_videos">
-  <% @features.each do |v| %>
-      <a href="<%= video_path(v.video_id)%>">
-        <%= v.video.title %> <br />
-      </a>
-  <% end %>
+    <%= link_to 'Edit', edit_artist_path(@artist) %> |
+    <%= link_to 'Back', artists_path %>
+
 </div>
 
-<hr />
+<div class="colmd-8">
+  
+  <div class="realated_videos">
+      <% @features.each do |v| %>
+          <a href="<%= video_path(v.video_id)%>">
+            <%= v.video.title %> <br />
+            <%= image_tag v.video.media.url(:thumb) %> <br />
+            
+          </a>
+      <% end %>
+  </div>
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+
+</div>
+
+</div>
+
+</div>

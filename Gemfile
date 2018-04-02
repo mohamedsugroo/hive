@@ -12,10 +12,23 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
+gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'paperclip', '~> 6.0.0'
 gem 'paperclip-av-transcoder'
 gem 'impressionist'
+
+gem 'devise'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'bootstrap', '~> 4.0.0'
+gem 'popper_js', '~> 1.12.9'
+gem 'meta-tags'
+
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

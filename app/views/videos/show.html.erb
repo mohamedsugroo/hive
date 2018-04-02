@@ -1,53 +1,112 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
 
-<%= video_tag @video.media.url, controls: true %>
+            <div class="videoContainer">
+              <%= video_tag @video.media.url %>
+            </div>
 
-<h2>
-  <%= @video.title %>
-</h2>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-10">
+                  <h2>
+                    <%= @video.title %>
+                  </h2>
+                  <h5><%= time_ago_in_words(@video.created_at) %></h6>
 
-<p>
-  <%= @video.description %>
-  <hr />
-  <%= link_to 'Edit', edit_video_path(@video) %> |
-  <%= link_to 'Back', videos_path %>
-</p>
+                </div>
+                <div class="col-md-2 text-align-right">
+                  <h2><%= @video.impressionist_count %></h2>
+                  Views
+                </div>
+              </div>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @video.duration %>
-</p>
 
-<%= time_ago_in_words(@video.created_at) %>
 
-<%= @video.impressionist_count %>
-Views
-<hr />
+              <p><%= @video.description %></p>
 
-<% @video.features.each do |ft| %>
-  <a href="<%= artist_path(ft.artist)%>">
-    <%= image_tag ft.artist.avatar.url(:small) %>  
-    <%= ft.artist.stage_name %>
-    <%= link_to 'Destroy', ft, method: :delete %>
-  </a>
-<% end %>
 
-<hr />
-<%= form_for Feature.new do |f|%>
-  <div>
-    <%= f.text_field :video_id, value: @video.id, type: 'hidden' %> 
-  </div>
+              <div class="features">                
 
-  <div>
-    <%= f.label :artist_id %>
-    <%= f.select(:artist_id, Artist.select) %> 
-  </div>
+              <% @video.features.each do |ft| %>
+                <a href="<%= artist_path(ft.artist)%>">
 
-  <div>
-    <%= f.submit %>
-  </div>
-   
-<% end %>
+                  <div class="avatar_features"  style=" background-image: url(<%= ft.artist.avatar.url(:small)%>);">
+                    
+                  </div>
+                  <%#= link_to 'Destroy', ft, method: :delete %>
+                </a>
+              <% end %>
+              </div>
 
-<hr/>
 
+            </div>
+
+
+            <div class="forum card">
+              <br>
+              <div class="container">
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newfeatures">
+                  Add New Feature
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="newfeatures" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <%= form_for Feature.new do |f|%>
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        
+
+                        <div>
+                          <%= f.text_field :video_id, value: @video.id, type: 'hidden' %> 
+                        </div>
+
+                        <div>
+                          <%= f.label :artist_id %>
+                          <%= f.select(:artist_id, Artist.select) %> 
+                        </div>
+
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <%= f.submit 'save', class: "btn btn-primary" %>
+                      </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+                
+                    
+                  
+                </div>
+                <br>
+            </div>
+
+            
+
+
+          
+              <%= link_to 'Edit', edit_video_path(@video) %> |
+              <%= link_to 'Back', videos_path %>
+
+
+
+        </div>
+
+        <div class="col-md-4">
+        
+        </div>
+
+    </div>
+</div>
+        
