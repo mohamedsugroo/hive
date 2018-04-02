@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<%= video_tag @video.media.url, controls: true %>
+
+<h2>
+  <%= @video.title %>
+</h2>
+
+<p>
+  <%= @video.description %>
+  <hr />
+  <%= link_to 'Edit', edit_video_path(@video) %> |
+  <%= link_to 'Back', videos_path %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @video.duration %>
+</p>
+
+<%= time_ago_in_words(@video.created_at) %>
+
+<%= @video.impressionist_count %>
+Views
+<hr />
+
+<% @video.features.each do |ft| %>
+  <a href="<%= artist_path(ft.artist)%>">
+    <%= image_tag ft.artist.avatar.url(:small) %>  
+    <%= ft.artist.stage_name %>
+    <%= link_to 'Destroy', ft, method: :delete %>
+  </a>
+<% end %>
+
+<hr />
+<%= form_for Feature.new do |f|%>
+  <div>
+    <%= f.text_field :video_id, value: @video.id, type: 'hidden' %> 
+  </div>
+
+  <div>
+    <%= f.label :artist_id %>
+    <%= f.select(:artist_id, Artist.select) %> 
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+   
+<% end %>
+
+<hr/>
+

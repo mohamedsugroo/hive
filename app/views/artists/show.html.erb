@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @artist.avatar.url(:large)%>
+<p>
+  <strong>First name:</strong>
+  <%= @artist.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @artist.last_name %>
+</p>
+
+<p>
+  <strong>Stage name:</strong>
+  <%= @artist.stage_name %>
+</p>
+
+<p>
+  <strong>Birth place:</strong>
+  <%= @artist.birth_place %>
+</p>
+
+<p>
+  <strong>Birth date:</strong>
+  <%= @artist.birth_date %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @artist.bio %>
+</p>
+
+<p>
+  <strong>Active status:</strong>
+  <%= @artist.active_status %>
+</p>
+
+<p>
+  <strong>Active from:</strong>
+  <%= @artist.active_from %>
+</p>
+
+<p>
+  <strong>Active to:</strong>
+  <%= @artist.active_to %>
+</p>
+
+<hr />
+
+<div class="realated_videos">
+  <% @features.each do |v| %>
+      <a href="<%= video_path(v.video_id)%>">
+        <%= v.video.title %> <br />
+      </a>
+  <% end %>
+</div>
+
+<hr />
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>

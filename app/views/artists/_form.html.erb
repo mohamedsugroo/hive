@@ -1,0 +1,67 @@
+<%= form_with(model: artist, local: true) do |form| %>
+  <% if artist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+
+      <ul>
+      <% artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :avatar%>
+    <%= form.file_field :avatar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :artist_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :artist_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stage_name %>
+    <%= form.text_field :stage_name, id: :artist_stage_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birth_place %>
+    <%= form.text_field :birth_place, id: :artist_birth_place %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birth_date %>
+    <%= form.text_field :birth_date, type: 'date', id: :artist_birth_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bio %>
+    <%= form.text_area :bio, id: :artist_bio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active_status %>
+    <%= form.text_field :active_status, id: :artist_active_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active_from %>
+    <%= form.text_field :active_from, id: :artist_active_from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active_to %>
+    <%= form.text_field :active_to, id: :artist_active_to %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
