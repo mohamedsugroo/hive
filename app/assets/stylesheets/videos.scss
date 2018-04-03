@@ -1,5 +1,48 @@
+.navbar {
+	margin-bottom: 20px;
+}
+
 video {
     width: 100%;
-    max-height: 450px;
+    min-height: 515px;
+    max-height: 523px;
     background: black;
+}
+
+.video_side_thumbs {
+
+	// background: green;
+	height: 100px;
+	margin-bottom: 10px;
+
+	.thumbs {
+	    margin-right: 8px;
+	    height: 94px;
+	    width: 168px;
+		background: black;
+		float: left;
+		margin-right: 10px;
+		background-position: center;
+		background-size: 100%;
+		background-repeat: no-repeat;
+
+		.duration {
+			margin-top: 76px;
+			margin-left: 108px;
+		}
+	}
+
+	.vsinfo {
+		margin-left: 5px;
+		.title {
+			font-size: 100%;
+			font-weight: 400;
+		}
+
+		p {
+			padding: 0;
+			margin: 0;
+		}
+	}
+
 }

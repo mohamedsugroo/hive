@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-8">
 
             <div class="videoContainer">
-              <%= video_tag @video.media.url %>
+              <%= video_tag @video.media.url, controls: true%>
             </div>
 
             <div class="container">
@@ -32,6 +32,8 @@
                 <a href="<%= artist_path(ft.artist)%>">
 
                   <div class="avatar_features"  style=" background-image: url(<%= ft.artist.avatar.url(:small)%>);">
+
+                    <div class="verification"></div>
                     
                   </div>
                   <%#= link_to 'Destroy', ft, method: :delete %>
@@ -104,6 +106,26 @@
         </div>
 
         <div class="col-md-4">
+
+          <% @videos.each do |v| %>
+
+          <div class="video_side_thumbs">
+            <a href="<%= video_path(v)%>">
+              <div class="thumbs" style=" background-image: url(<%= v.media.url(:thumb)%>);">
+                <span class="duration badge badge-dark">
+                  <%= v.duration %>
+                </span>
+              </div>
+              <div class="vsinfo">
+                <p class="title"><%= truncate(v.title, length: 40 )%></p>
+                <p>
+                  <%= v.impressionist_count %> Views
+                </p>
+              </div>
+            </a>
+            
+          </div>
+          <% end %>
         
         </div>
 
