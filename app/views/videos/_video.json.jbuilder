@@ -2,8 +2,10 @@ json.extract! video, :id, :title, :description, :duration, :created_at, :updated
 json.url video_url(video, format: :json)
 
 json.comments @comments do |c|
-	json.video_id c.video_id
+	json.id c.id
 	json.user_id c.user_id
+	json.user_id c.user_id
+	json.current_duration c.current_duration
 	json.body c.body
 end
 

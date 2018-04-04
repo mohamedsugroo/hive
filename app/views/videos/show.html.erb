@@ -3,7 +3,7 @@
         <div class="col-md-8">
 
             <div class="videoContainer">
-              <%= video_tag @video.media.url, controls: true%>
+              <%= video_tag @video.media.url, controls: true, id: :videoPlayer%>
             </div>
 
             <div class="container">
@@ -40,7 +40,8 @@
 
               <p><%= @video.description %></p>
 
-              <%#= link_to 'Edit', edit_video_path(@video) %> |
+              <%#= link_to 'Edit', edit_video_path(@video) %> 
+              <!-- | -->
               <%#= link_to 'Back', videos_path %>
 
               <br><br>
@@ -70,9 +71,9 @@
               <div class="container">
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newfeatures">
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newfeatures">
                   Add New Feature
-                </button>
+                </button> -->
 
                 <!-- Modal -->
                 <div class="modal fade" id="newfeatures" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -118,12 +119,12 @@
             <div class="comments">
 
               <div class="container">
-                <h6>Comments</h6>
+                <h6><%= @video.comments.size %> Comments <i class="far fa-comment-alt"></i> </h6>
+                <br><br>
                 <%= render 'videos/comments' %>
 
               </div>
               
-
             </div>
 
         </div>

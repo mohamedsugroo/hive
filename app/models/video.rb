@@ -8,6 +8,7 @@ class Video < ApplicationRecord
     validates_attachment_content_type :media, :content_type => /\Avideo\/.*\Z/      
 
     has_many :features, dependent: :delete_all
+    has_many :comments, dependent: :delete_all
 
 
     def count

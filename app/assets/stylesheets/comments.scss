@@ -21,3 +21,48 @@
 .trix-button-row {
 	display: none !important
 }
+
+
+
+.comments_list {
+	padding-left: 50px;
+}
+
+.comment_avatar {
+	width: 60px;
+    height: 60px;
+	background: #feca57;
+	border-radius: 100%;
+	float: left;
+	margin: 4px;
+	margin-right: 20px;
+}
+
+
+.email_user {
+	padding: 6px;
+	padding-left: 0;
+	margin-left: 0;
+	// background: gray;
+	font-weight: 600;
+}
+
+.commnent_body {
+	padding-left: 60px;
+	// border-bottom: 1px solid red;
+	padding-bottom: 10px;
+    // background: red;
+    margin-bottom: 8px;
+    margin-left: 30px;
+}
+
+
+.time_ago_comment {
+	font-weight: 300;
+	color: gray;
+}
+
+
+.trix-content {
+    margin-bottom: 14px;
+}

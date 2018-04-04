@@ -1,3 +1,5 @@
+<!-- <button onclick="videoTimer()">Click me</button> -->
+
 <% if user_signed_in? %>
 	<%=form_for Comment.new do |f|%>
 
@@ -9,16 +11,16 @@
 			</div>
 			<div class="col">
 				<%= f.text_field :video_id, value: @video.id, type: 'hidden' %>
+				<%= f.text_field :current_duration, id: :current_duration, type: 'hidden' %>
 				<%= f.trix_editor :body, class: 'form-control' %>
 				<div class="row">
-					<div class="col">s</div>
+					<div class="col"> </div>
 					<div class="col text-align-right">
-						<button type="cancel" class="btn btn-default">Cancel</button>
-						<%= f.submit 'Comment', class: 'btn btn-success' %>
+						<%= f.button "Post Comment", class: 'btn btn-success', onclick: "videoTimer()" %>
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 
 	</div>
@@ -29,6 +31,73 @@
 
 <% end %>
 
-<div class="spanSpace"></div>
+<div class="comments_list">
+	
+	<% @comments.each do |comment| %>
+		<div class="comment_item">
+			<div class="comment_user_info">
+				<div class="comment_avatar"></div>
+			</div>
+			<div class="commnent_body">
+
+				<div class="email_user">
+					<%= comment.user.email %> <br>
+					<p class="time_ago_comment">
+					<%= time_ago_in_words(comment.created_at)%>
+					</p>
+				</div>
+
+				<%= comment.body.html_safe %>
+				<br>	
+				<%= link_to 'Edit', edit_comment_path(comment) %>
+				<%#= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>	
+
+				<hr>
+
+				<div class="comment_item">
+					<% comment.replies.each do |r| %>
+					 <br>
+					
+
+
+					<div class="comment_user_info">
+						<div class="comment_avatar"></div>
+					</div>
+					<div class="commnent_body">
+
+						<div class="email_user">
+							<%= r.user.email %> <br>
+							<p class="time_ago_comment">
+							<%= time_ago_in_words(r.created_at)%>
+							</p>
+						</div>
+						<%= r.body.html_safe %>
+						<%= link_to 'Edit', edit_reply_path(r) %>
+						<br>	
+					</div>
+
+
+					<% end %>
+				</div>
+
+
+				<br>
+				<br>
+
+				<%= form_for Reply.new do |reply| %>
+					<%= reply.text_field :comment_id, value: comment.id, type: 'hidden' %>
+					<%= reply.trix_editor :body %>
+					<%= reply.button "Reply", class: 'btn btn-success', onclick: "videoTimer()" %>
+				<% end %>	
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<!-- <div class="spanSpace"></div> -->
+
+
+
+
 
 

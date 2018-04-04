@@ -12,9 +12,9 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
 //= require moment
 //= require bootstrap-datetimepicker
-//= require jquery
 //= require bootstrap
 //= require popper
 //= require trix
