@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :replies
-  resources :comments
+  resources :replies, except: [:index]
+  resources :comments, except: [:index]
   devise_for :users
-  resources :features
+  resources :features, except: [:index]
   root 'videos#index'
   resources :artists
   resources :videos

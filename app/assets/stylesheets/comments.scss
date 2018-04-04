@@ -8,6 +8,23 @@
 // .span_spacer_master {
 // 	padding: 12px;
 // }
+.comments_wrapper {
+
+	.card {
+		border: 0 !important;
+		border-radius: 0px !important;
+		border-bottom: 1px solid #e8e8e8 !important;
+		margin-bottom: 10px !important;
+	}
+
+	.card-img-top {
+		height: 180px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+}
 
 .user_avatar_circle {
 	background: #e2e2e2;
@@ -40,7 +57,7 @@
 
 
 .email_user {
-	padding: 6px;
+	padding: 0px;
 	padding-left: 0;
 	margin-left: 0;
 	// background: gray;

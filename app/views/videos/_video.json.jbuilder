@@ -7,6 +7,13 @@ json.comments @comments do |c|
 	json.user_id c.user_id
 	json.current_duration c.current_duration
 	json.body c.body
+
+	json.replies c.replies do |r|
+		json.id r.id
+		json.user_id r.user_id
+		json.body r.body
+		json.created_at r.created_at
+	end
 end
 
 json.relate_videos @videos.each do |v|

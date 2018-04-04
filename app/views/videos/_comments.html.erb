@@ -87,7 +87,9 @@
 				<%= form_for Reply.new do |reply| %>
 					<%= reply.text_field :comment_id, value: comment.id, type: 'hidden' %>
 					<%= reply.trix_editor :body %>
-					<%= reply.button "Reply", class: 'btn btn-success', onclick: "videoTimer()" %>
+					<div class="text-align-right">
+						<%= reply.button "Reply", class: 'btn btn-success', onclick: "videoTimer()" %>
+					</div>
 				<% end %>	
 			</div>
 		</div>

@@ -1,24 +1,106 @@
-<p id="notice"><%= notice %></p>
+<div class="comments_wrapper">
 
-<p>
-  <strong>Video:</strong>
-  <%= @comment.video %>
-</p>
+	<div class="container">
 
-<p>
-  <strong>User:</strong>
-  <%= @comment.user %>
-</p>
+		<div class="row">
+			<div class="col-md-8">
 
-<p>
-  <strong>Body:</strong>
-  <%= @comment.body %>
-</p>
 
-<p>
-  <strong>Current duration:</strong>
-  <%= @comment.current_duration %>
-</p>
+				<div class="card">
+				  <div class="card-body">
+				    <h5 class="card-title">
+				    	<%= @comment.video.title %>	
+			    	</h5>
+				    <h6 class="card-subtitle mb-2 text-muted">
+					    Uploaded <%= time_ago_in_words(@comment.video.created_at )%>
+					</h6>
+				    <p class="card-text">
+				    	<%= @comment.video.description %>
+				    </p>
+				    <a href="<%= video_path(@comment.video.id) %>" class="card-link btn btn-primary">
+					   <i class="fas fa-video"></i> Watch Video
+					</a>
+				    <!-- <a href="#" class="card-link">Another link</a> -->
+				  </div>
+				</div>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+				<br>
+
+
+
+				<div class="comment_item">
+
+					<div class="comment_user_info">
+						<div class="comment_avatar"></div>
+					</div>
+					<div class="commnent_body">
+
+						<div class="email_user">
+							<%= @comment.user.email %> <br>
+							<p class="time_ago_comment">
+							<%= time_ago_in_words(@comment.created_at)%>
+							</p>
+						</div>
+						<%= @comment.body.html_safe %> <br>
+						<%= link_to 'Edit', edit_comment_path(@comment.id) %>
+						<br>
+
+
+						<div class="comment_item">
+							<% @comment.replies.each do |r| %>
+							 <br>
+							
+
+
+							<div class="comment_user_info">
+								<div class="comment_avatar"></div>
+							</div>
+							<div class="commnent_body">
+
+								<div class="email_user">
+									<%= r.user.email %> <br>
+									<p class="time_ago_comment">
+									<%= time_ago_in_words(r.created_at)%>
+									</p>
+								</div>
+								<%= r.body.html_safe %>
+								<%= link_to 'Edit', edit_reply_path(r) %>
+								<br>	
+							</div>
+
+
+							<% end %>
+
+							<br><br>
+
+
+							<%= form_for Reply.new do |reply| %>
+								<%= reply.text_field :comment_id, value: @comment.id, type: 'hidden' %>
+								<%= reply.trix_editor :body %>
+								<div class="text-align-right">
+									<%= reply.button "Reply", class: 'btn btn-success', onclick: "videoTimer()" %>
+								</div>
+							<% end %>
+						</div>
+
+
+					</div>
+
+				</div>
+
+			</div>
+			<div class="col">
+			
+
+				
+
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+
+</div>
