@@ -7,14 +7,15 @@ class Artist < ApplicationRecord
         small: "100x100>" }, default_url: "/images/:style/missing.png"
     validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
-    has_many :features
+    has_many :features, dependent: :delete_all
 
     def self.select
         Artist.order("stage_name").map { |s| 
             [
                 s.stage_name,
                 s.id
-            ] }
+            ]
+        }
     end
 
     def full_name

@@ -1,0 +1,25 @@
+$primary: #ff6b6b;
+$primary-dark: #ee5253;
+$success: #1dd1a1;
+$success-dark: #10ac84;
+
+
+.btn-primary {
+	background: $primary !important;
+	color: white !important;
+	border: 0 !important;
+
+	&:hover {
+		background: $primary-dark;
+	}
+}
+
+.btn-seccess {
+	background: $success !important;
+	color: white !important;
+	border: 0 !important;
+
+	&:hover {
+		background: $success-dark;
+	}
+}

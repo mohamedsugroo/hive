@@ -1,0 +1,63 @@
+.navPlaceholder {
+	height: 100px;
+}
+.mainNavbar {
+	background : #FFFFFF;
+	background : rgba(255, 255, 255, 1);
+	box-shadow : 0px 1px 5px rgba(0, 0, 0, 0.1);
+	filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color='#000000') ;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	// padding: 12px;
+	z-index: 1000;
+
+	.col {
+		padding-top: 6px;
+		padding-bottom: 6px;
+		// background: red;
+	}
+
+	.nav_last_item {
+		margin-right: 15px;
+	}
+
+	.nav_first_item {
+		margin-left: 15px;
+	}
+
+
+	.brand {
+		width: 70px;
+		height: 100%;
+		background-image: url(../svgs/logo.svg);
+		background-position: center;
+		background-size: 80%;
+		background-repeat: no-repeat;
+		float: left;
+		// background-color: red;
+	}
+
+	.dropdownMenu {
+		float: left;
+		margin-right: 20px;
+		border: none;
+		padding: 5px;
+		margin: 4px;
+		background: none;
+	}
+
+
+	.align-right {
+		text-align: right;
+		padding-top: 7px;
+
+	}
+
+	.sign_in {
+		border: 0;
+		background: none;
+		margin-right: 10px;
+	}
+}

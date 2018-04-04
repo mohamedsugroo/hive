@@ -7,7 +7,7 @@ class VideosController < ApplicationController
   end
 
   def show
-    @videos = Video.all
+    @videos = Video.where('id != ?', @video.id).order("RANDOM()")
   end
 
   def new

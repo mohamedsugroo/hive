@@ -35,36 +35,53 @@
 
     
 
-    <p>
-      <strong>Birth date</strong> <br>
-      <%= @artist.birth_date %>
-    </p>
+    <% if @artist.birth_date.length > 2 %>
+      <p>
+        <strong>Birth date</strong> <br>
+        <%= @artist.birth_date %>
+      </p>
+    <% end %>
 
     <p>
       <%= @artist.bio %>
     </p>
 
-
-    <%= link_to 'Edit', edit_artist_path(@artist) %> |
-    <%= link_to 'Back', artists_path %>
-
 </div>
 
-<div class="colmd-8">
-  
-  <div class="realated_videos">
-      <% @features.each do |v| %>
-          <a href="<%= video_path(v.video_id)%>">
-            <%= v.video.title %> <br />
-            <%= image_tag v.video.media.url(:thumb) %> <br />
+<div class="col-md-8">
+
+<div class="video_list">
+    
+    
+    <% @features.each do |v| %>
+      <a href="<%= video_path(v.video_id)%>">
+        
+        <div class="video_item">
+          <div class="item_cover" style=" background-image: url(<%= v.video.media.url(:thumb) %>);">
+          </div>
+          <div class="item_info">
+            <%= truncate(v.video.title, length: 30) %>
+          </div>
+        </div>
             
-          </a>
-      <% end %>
+      </a>
+    <% end %>
   </div>
 
-
 </div>
 
 </div>
-
 </div>
+
+
+<style>
+  .col-md-4 {
+    padding: 0;
+    margin: 0;
+  }
+
+  .col-md-8 {
+    padding: 0;
+    margin: 0;
+  }
+</style>

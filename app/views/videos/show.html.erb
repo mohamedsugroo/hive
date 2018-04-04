@@ -9,19 +9,34 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-10">
-                  <h2>
+                  <h2 class="video_title">
                     <%= @video.title %>
                   </h2>
-                  <h5><%= time_ago_in_words(@video.created_at) %></h6>
+                  <h6 class="time_ago_video"><%= time_ago_in_words(@video.created_at) %></h6>
 
                 </div>
                 <div class="col-md-2 text-align-right">
-                  <h2><%= @video.impressionist_count %></h2>
+                  <h2 class="views_item">
+                    <% if @video.count >= 4 %>
+
+                      <%= @video.impression[0...-3] %> K
+
+                    <% elsif @video.count >= 7 %>
+
+                      <%= @video.impression[0...-6] %> M
+                    
+                    <% end %>
+
+                    <% if @video.count < 4 %>
+                      <%= @video.impressionist_count %>
+                    <% end %>
+
+                  </h2>
+
                   Views
+                  
                 </div>
               </div>
-
-
 
               <p><%= @video.description %></p>
 
@@ -45,7 +60,7 @@
             </div>
 
 
-            <div class="forum card">
+            <div class="form">
               <br>
               <div class="container">
 
@@ -118,7 +133,7 @@
               </div>
               <div class="vsinfo">
                 <p class="title"><%= truncate(v.title, length: 40 )%></p>
-                <p>
+                <p class="views">
                   <%= v.impressionist_count %> Views
                 </p>
               </div>

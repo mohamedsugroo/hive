@@ -24,10 +24,10 @@ gem 'omniauth-twitter'
 gem 'bootstrap', '~> 4.0.0'
 gem 'popper_js', '~> 1.12.9'
 gem 'meta-tags'
+gem "font-awesome-rails"
 
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
-
 
 
 group :development, :test do
@@ -41,6 +41,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'guard-livereload', '~> 2.5', require: false
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
