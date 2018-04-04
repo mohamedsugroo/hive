@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_bootstrap
  *= require_bootstrap-datetimepicker
+ *= require trix
  *= require font-awesome
  *= require_self
  */

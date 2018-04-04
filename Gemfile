@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'paperclip', '~> 6.0.0'
 gem 'paperclip-av-transcoder'
 gem 'impressionist'
+gem 'trix'
 
 gem 'devise'
 gem 'omniauth-facebook'

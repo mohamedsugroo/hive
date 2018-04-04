@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180404041812) do
+ActiveRecord::Schema.define(version: 20180404043349) do
 
   create_table "artists", force: :cascade do |t|
     t.string "first_name"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 20180404041812) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "video_id"
+    t.integer "user_id"
+    t.text "body"
+    t.string "current_duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["video_id"], name: "index_comments_on_video_id"
   end
 
   create_table "features", force: :cascade do |t|

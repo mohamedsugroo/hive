@@ -14,7 +14,7 @@ $success-dark: #10ac84;
 	}
 }
 
-.btn-seccess {
+.btn-success {
 	background: $success !important;
 	color: white !important;
 	border: 0 !important;
@@ -22,4 +22,9 @@ $success-dark: #10ac84;
 	&:hover {
 		background: $success-dark;
 	}
+}
+
+
+.spanSpace {
+	height: 300px;
 }

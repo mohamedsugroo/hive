@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  video: one
+  user: one
+  body: MyText
+  current_duration: MyString
+
+two:
+  video: two
+  user: two
+  body: MyText
+  current_duration: MyString

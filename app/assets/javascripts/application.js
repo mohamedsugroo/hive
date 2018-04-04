@@ -17,4 +17,5 @@
 //= require jquery
 //= require bootstrap
 //= require popper
+//= require trix
 //= require_tree .
