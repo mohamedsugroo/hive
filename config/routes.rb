@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :replies, except: [:index]
-  resources :comments, except: [:index]
+  resources :comments, except: [:index], path: 'discussion'
   devise_for :users
   resources :features, except: [:index]
   root 'videos#index'

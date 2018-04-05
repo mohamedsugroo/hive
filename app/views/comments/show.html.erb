@@ -12,10 +12,24 @@
 				    	<%= @comment.video.title %>	
 			    	</h5>
 				    <h6 class="card-subtitle mb-2 text-muted">
-					    Uploaded <%= time_ago_in_words(@comment.video.created_at )%>
+					    Uploaded <%= time_ago_in_words(@comment.video.created_at )%> |
+					    <% if @comment.video.count >= 4 %>
+
+	                      <%= @comment.video.impression[0...-3] %> K
+
+	                    <% elsif @comment.video.count >= 7 %>
+
+	                      <%= @comment.video.impression[0...-6] %> M
+	                    
+	                    <% end %>
+
+	                    <% if @comment.video.count < 4 %>
+	                      <%= @comment.video.impressionist_count %>
+	                    <% end %> Views
+
 					</h6>
 				    <p class="card-text">
-				    	<%= @comment.video.description %>
+				    	<%= @comment.video.description.html_safe %>
 				    </p>
 				    <a href="<%= video_path(@comment.video.id) %>" class="card-link btn btn-primary">
 					   <i class="fas fa-video"></i> Watch Video
@@ -31,7 +45,7 @@
 				<div class="comment_item">
 
 					<div class="comment_user_info">
-						<div class="comment_avatar"></div>
+						<div class="comment_avatar" style="background-image: url('https://vignette.wikia.nocookie.net/baki/images/c/cd/Jack_Hammer.PNG/revision/latest?cb=20160924195915');"></div>
 					</div>
 					<div class="commnent_body">
 
@@ -53,7 +67,7 @@
 
 
 							<div class="comment_user_info">
-								<div class="comment_avatar"></div>
+								<div class="comment_avatar" style="background-image: url('https://vignette.wikia.nocookie.net/baki/images/c/cd/Jack_Hammer.PNG/revision/latest?cb=20160924195915');"></div>
 							</div>
 							<div class="commnent_body">
 
@@ -90,7 +104,41 @@
 
 			</div>
 			<div class="col">
-			
+
+
+				<div class="calculator" >
+				  <div class="calculator-body">
+				    <h5 class="calculator-title">
+				    	statistics
+				    </h5>
+				  </div>
+				</div>
+
+				<div class="calculator bg-light" >
+				  <div class="calculator-body">
+					<div class="calculator-text">
+				    	<div class="row">
+				    		<div class="col">
+				    			<h6>Replies</h6>
+					    		<h3><%= @comment.replies.count %></h3>
+					    	</div>
+				    		<div class="col">
+				    			<h6>Views</h6>
+					    		<h3>
+					    			<% if @comment.count >= 4 %>
+				                      <%= @comment.impression[0...-3] %> K
+				                    <% elsif @comment.count >= 7 %>
+				                      <%= @comment.impression[0...-6] %> M
+				                    <% end %>
+				                    <% if @comment.count < 4 %>
+				                      <%= @comment.impression %>
+				                    <% end %>
+					    		</h3>
+					    	</div>
+				    	</div>
+					</div>
+				</div>
+				</div>
 
 				
 

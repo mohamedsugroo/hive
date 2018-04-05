@@ -48,7 +48,10 @@
 .comment_avatar {
 	width: 60px;
     height: 60px;
-	background: #feca57;
+	// background: #efefef;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	border-radius: 100%;
 	float: left;
 	margin: 4px;

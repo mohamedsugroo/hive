@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
   impressionist action: [:show]
-  
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @artists = Artist.all

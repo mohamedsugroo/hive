@@ -36,7 +36,7 @@
 	<% @comments.each do |comment| %>
 		<div class="comment_item">
 			<div class="comment_user_info">
-				<div class="comment_avatar"></div>
+				<div class="comment_avatar" style="background-image: url('https://vignette.wikia.nocookie.net/baki/images/c/cd/Jack_Hammer.PNG/revision/latest?cb=20160924195915');"></div>
 			</div>
 			<div class="commnent_body">
 
@@ -50,7 +50,7 @@
 				<%= comment.body.html_safe %>
 				<br>	
 				<%= link_to 'Edit', edit_comment_path(comment) %>
-				<%#= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>	
+				<%= link_to 'Delete', comment, method: :delete %>	
 
 				<hr>
 
@@ -61,7 +61,7 @@
 
 
 					<div class="comment_user_info">
-						<div class="comment_avatar"></div>
+						<div class="comment_avatar" style="background-image: url('https://vignette.wikia.nocookie.net/baki/images/c/cd/Jack_Hammer.PNG/revision/latest?cb=20160924195915');"></div>
 					</div>
 					<div class="commnent_body">
 
@@ -73,6 +73,7 @@
 						</div>
 						<%= r.body.html_safe %>
 						<%= link_to 'Edit', edit_reply_path(r) %>
+						<%= link_to 'Delete', r, method: :delete %>	
 						<br>	
 					</div>
 
@@ -84,13 +85,18 @@
 				<br>
 				<br>
 
-				<%= form_for Reply.new do |reply| %>
-					<%= reply.text_field :comment_id, value: comment.id, type: 'hidden' %>
-					<%= reply.trix_editor :body %>
-					<div class="text-align-right">
-						<%= reply.button "Reply", class: 'btn btn-success', onclick: "videoTimer()" %>
-					</div>
-				<% end %>	
+
+				<% if user_signed_in? %>
+					<%= form_for Reply.new do |reply| %>
+						<%= reply.text_field :comment_id, value: comment.id, type: 'hidden' %>
+						<%= reply.trix_editor :body %>
+						<div class="text-align-right">
+							<%= reply.button "Reply", class: 'btn btn-success', onclick: "videoTimer()" %>
+						</div>
+					<% end %>
+
+				<% end %>
+
 			</div>
 		</div>
 	<% end %>

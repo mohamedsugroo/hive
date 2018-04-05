@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   impressionist action: [:show]
-
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @videos = Video.all
   end
@@ -9,6 +9,11 @@ class VideosController < ApplicationController
   def show
     @videos = Video.where('id != ?', @video.id).order("RANDOM()")
     @comments = Comment.where(video_id: @video.id).order("created_at DESC")
+
+    set_meta_tags title: @video.title,
+              reverse: true,
+              description: @video.description,
+              keywords: 'watch, video, comment'
   end
 
   def new

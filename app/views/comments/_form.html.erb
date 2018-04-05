@@ -12,13 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :video_id %>
-    <%= form.text_field :video_id, id: :comment_video_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :comment_user_id %>
+    <%= form.text_field :video_id, id: :comment_video_id, type: 'hidden' %>
   </div>
 
   <div class="field">
@@ -26,12 +20,8 @@
     <%= form.trix_editor :body, id: :comment_body %>
   </div>
 
-  <div class="field">
-    <%= form.label :current_duration %>
-    <%= form.text_field :current_duration, id: :comment_current_duration %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-align-right">
+    <%= form.submit 'Post Comment', class: 'btn btn-success' %>
   </div>
 <% end %>

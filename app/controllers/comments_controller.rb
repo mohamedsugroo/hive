@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  impressionist action: [:show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @comments = Comment.all
@@ -7,6 +9,12 @@ class CommentsController < ApplicationController
 
 
   def show
+
+    set_meta_tags title: @comment.video.title,
+              reverse: true,
+              description: @comment.body,
+              keywords: 'discussion, forum, comments'
+
   end
 
   def new
