@@ -1,5 +1,21 @@
 @import '../colors';
 
+
+.uhPlayer {
+    overflow: hidden;
+    background: black;
+    max-height: 523px
+}
+
+
+.videoSpace {
+    max-height: 523px;
+    min-height: 450px;
+    width: 100%;
+    background: #000;
+    transition: all .3s ease;
+}
+
 .vControllers {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(35, 31, 32, 0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#231F20',endColorstr='#121028' , GradientType=0);      
@@ -43,8 +59,14 @@
         padding: 4px;
         // background: red;
 
-        .current-time {
-            color: $white;
+        #current-time {
+            color: $gray;
+            // background: red;
+            padding-left: 1px;
+            padding-right: 20px;
+            transition: all .3s ease;
+            width: 81px;
+            text-align: left;
         }
         .duration {
             color: $gray;
@@ -55,6 +77,16 @@
         padding: 16px;
         border-radius: 8px;
         border:  none;
+    }
+
+    .volBtn {
+        height: 26px;
+        background: $white;
+        margin-top: 3px;
+        width: 7px !important;
+        border: 0;
+        padding: 0;
+        border-radius: 12px;
     }
 
     .fll {

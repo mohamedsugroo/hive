@@ -1,47 +1,64 @@
-// video player pasic funtions 
+$(document).ready(function () {
 
+    // video player pasic funtions 
+    // variable Declaration
+    var vid,btnplayPause,loopBtn,muteBtn,curSpan,durSpan;
+    // vars in use
+    vid = document.querySelector("#videoPlayer");        
+    btnplayPause = document.querySelector(".playPause");
+    loopbtn = document.querySelector(".loopBtn");    
+    curSpan = document.querySelector(".current-time");
+    durSpan = document.querySelector(".duration");
 
-// variable Declaration
-var vid;
-// vars in use
-vid = document.querySelectorAll("video");
+    // var with functions
+    btnplayPause.addEventListener('click', playPause, false);
+    loopbtn.addEventListener('click', vidLoop, false);    
 
-// play pause functions
+    // play pause functions
+    function playPause() {
+        if (vid.paused) {
+            vid.play();
+            $(".playPause").removeClass("playIcon").addClass("pauseIcon");            
+          }else {
+            vid.pause();
+            $(".playPause").addClass("playIcon").removeClass("pauseIcon");            
+          }
+    }
+    // video loop functions
+    function vidLoop(){
+        vid.loop = true;
+        console.log("video Loop true");
+    }
+    // video volume contol functions
+    function mutebtn() {
 
-function playPause() {
-
-    if ( vid.play = true ) {
-        consol.log("Video playing");
-    } else {
-        console.log("video paused");
     }
 
-}
+    // video Time update functions
+    vid.ontimeupdate = function timerUpdate() {
+        const nt = vid.currentTime * (100 / vid.duration);
+        var curmins = Math.floor(vid.currentTime / 60);
+        var cursecs = Math.floor(vid.currentTime - curmins * 60);
+        var durmins = Math.floor(vid.duration / 60);
+        var dursecs = Math.floor(vid.duration - durmins * 60);
+        if(curmins < 10){ curmins = "0"+curmins; }
+        if(cursecs < 10){ cursecs = "0"+cursecs; }
+        if(durmins < 10){ durmins = "0"+durmins; }
+        if(dursecs < 10){ dursecs = "0"+dursecs; }
 
 
-// video loop functions
+        console.log(nt);
 
-function loop(){
-
-}
-
-// video volume contol functions
-
-function mutebtn() {
-
-}
+        $( "#current-time" ).html(curmins+":"+cursecs);
+        $( "#duration" ).html(durmins+":"+dursecs);
+        
+    }
 
 
-// video Time update functions
+    // setting functions
+    function settings() {
 
-function timeUpdate() {
-
-}
-
-
-// setting functions
+    }
 
 
-function settings() {
-
-}
+});
