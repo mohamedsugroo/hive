@@ -1,1 +1,34 @@
-<%= video_tag @video.media.url, controls: true, id: :videoPlayer%>
+<div class="videoplayer_container uhPlayer">
+    <%= video_tag @video.media.url, autoplay: true , id: :videoPlayer%>
+    <!-- , controls: true -->
+
+    <div class="vControllers">
+        <div class="container-fuild">
+
+            <div class="skeebar_container">
+                <div class="download_progress">
+                    <div class="current_progress">
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button class="playPause playIcon btn_plyr fll mr-2"></button>
+                    <button class="loopBtn loopIcon btn_plyr fll mr-2"></button>                    
+                    <button class="muteBtn muteIcon btn_plyr fll mr-2"></button>
+                </div>
+                <div class="col text-align-right ml-2">
+                    <div class="timers">
+                        <span class="current-time">00:00</span>
+                        <span class="duration">00:00</span>
+                    </div>
+                    <button class="fullScreen fullscreenIcon btn_plyr flr ml-2"></button>                                        
+                    <button class="settings settingsIcon btn_plyr flr ml-2"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,49 @@
+.playIcon {
+    background-image: url('/svgs/playback-play.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    background-color: transparent;
+}
+
+.pauseIcon {
+    background-image: url('/svgs/playback-pause.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    background-color: transparent;
+ }
+
+ .loopIcon {
+    background-image: url('/svgs/loop.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+    background-color: transparent;
+ }
+
+
+ .muteIcon {
+    background-image: url('/svgs/volume-mute2.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    background-color: transparent;
+ }
+
+ .fullscreenIcon {
+    background-image: url('/svgs/fullscreen.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-color: transparent;
+ }
+
+
+ .settingsIcon {
+    background-image: url('/svgs/gear.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    background-color: transparent;
+ }

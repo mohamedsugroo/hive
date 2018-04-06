@@ -1,0 +1,68 @@
+@import '../colors';
+
+.vControllers {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(35, 31, 32, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#231F20',endColorstr='#121028' , GradientType=0);      
+    
+    padding: 12px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    margin-top: -126px;
+    position: relative;
+    z-index: 1000;
+
+    
+
+    .skeebar_container {
+        background: $light-gray;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        height: 10px;
+        width: 100%;
+        background: hsla(213, 21%, 90%, 0.15);
+        .download_progress {
+            background: #dfe4ea61;
+            width: 100px;
+            height: 10px;
+            border-radius: 5px;            
+
+            .current_progress {
+                background: $red-dark;
+                width: 70px;
+                height: 10px;
+                border-radius: 5px;                
+            }
+
+        }
+        
+    }
+
+    .timers {
+        display: inline-block;
+        color: white;
+        padding: 4px;
+        // background: red;
+
+        .current-time {
+            color: $white;
+        }
+        .duration {
+            color: $gray;
+        }
+    }
+
+    .btn_plyr {
+        padding: 16px;
+        border-radius: 8px;
+        border:  none;
+    }
+
+    .fll {
+        float: left;
+    }
+
+    .flr {
+        float: right;
+    }
+
+}
