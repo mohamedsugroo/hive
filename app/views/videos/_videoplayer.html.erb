@@ -1,9 +1,14 @@
-<div class="videoSpace">
+<div class="">
+<!-- add this class to the div above videoSpace -->
     <div class="videoplayer_container uhPlayer">
-        <%= video_tag @video.media.url, autoplay: true , id: :videoPlayer%>
+        
+
+        <video autoplay="autoplay" id="videoPlayer">
+            <source src="<%=  @video.media.url%>"></source>
+        </video>
         <!-- , controls: true -->
 
-        <div class="vControllers">
+        <div class="vControllers" style="display: hidden" >
             <div class="container-fuild">
 
                 <div class="skeebar_container">
@@ -18,7 +23,7 @@
                     <div class="col">
                         <button class="playPause btn_plyr pauseIcon fll mr-2"></button>
                         <button class="loopBtn loopIcon btn_plyr fll mr-2" ></button>                    
-                        <button class="muteBtn muteIcon btn_plyr fll mr-2"></button>
+                        <button class="muteBtn mutedIcon btn_plyr fll mr-2"></button>
                         <div class="volumelevels">
                             <button class="volume-10 volBtn"></button>
                             <button class="volume-20 volBtn"></button>
@@ -36,7 +41,7 @@
                                 <label id="duration">00:00</label> |
                                 <label id="current-time">00:00</label>
                         </div>
-                        <button class="fullScreen fullscreenIcon btn_plyr flr ml-2"></button>                                        
+                        <button class="fullscreenIcon btn_plyr flr ml-2" id="btnFullscreen"></button>                                        
                         <button class="settings settingsIcon btn_plyr flr ml-2"></button>
                     </div>
                 </div>
@@ -45,6 +50,10 @@
 
     </div>
 </div>
+
+<button onclick="fullscreenToggle();">
+    full screen
+</button>
 
 <script>
     vid = document.querySelector("#videoPlayer");    

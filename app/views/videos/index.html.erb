@@ -1,30 +1,38 @@
 <div class="container">
-  <h1>Videos</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Duration</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <% @videos.each do |video| %>
+    <div class="video_card">
+      <a href="<%= video_path(video) %>">
+        <div class="video_thumb" style=" background-image: url(<%= video.media.url(:thumb) %>); ">
+          <span class="video_duration badge badge-dark">
+            <%= video.duration %>
+          </span>
+        </div>
+      </a>
+      <div class="video_info">
+        <div class="container">
+          <div class="video_title">
+            <%= truncate(video.title, length: 40) %> 
+          </div>
 
-    <tbody>
-      <% @videos.each do |video| %>
-        <tr>
-          <td><%= video.title %></td>
-          <td><%= video.description %></td>
-          <td><%= video.duration %></td>
-          <td><%= link_to 'Show', video %></td>
-          <td><%= link_to 'Edit', edit_video_path(video) %></td>
-          <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+          <div class="row video_stats">
+            <div class="col">
+              <%= video.impressions.count %>
+            </div>
+            <div class="col bl-1">
+              <%= time_ago_in_words(video.created_at) %>
+            </div>        
+          </div>
 
-  <br>
+        </div>
+      
+      </div>
+
+      
+      <%#= link_to 'Show', video %>
+      <%#= link_to 'Edit', edit_video_path(video) %>
+      <%#= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </div>
+  <% end %>
 
 </div>

@@ -1,10 +1,29 @@
 @import '../colors';
 
+* {
+    transition: all .2s ease;
+}
 
 .uhPlayer {
     overflow: hidden;
     background: black;
-    max-height: 523px
+    max-height: 523px;
+
+    &:hover{
+        .vControllers {
+            margin-top: -126px;
+        }
+    }
+
+}
+
+
+video::-webkit-media-controls {
+    display:none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+    display:none !important;
 }
 
 
@@ -23,7 +42,7 @@
     padding: 12px;
     padding-top: 50px;
     padding-bottom: 20px;
-    margin-top: -126px;
+    margin-top: 0px;
     position: relative;
     z-index: 1000;
 
@@ -65,7 +84,7 @@
             padding-left: 1px;
             padding-right: 20px;
             transition: all .3s ease;
-            width: 81px;
+            width: 52px;
             text-align: left;
         }
         .duration {
@@ -95,6 +114,21 @@
 
     .flr {
         float: right;
+    }
+
+}
+
+
+.fullscreenMode{
+    width: 100vw;
+    height: 100vh;
+
+    .vControllers{
+        position: fixed;
+        bottom: 0;
+        z-index: 2147483648;
+        width: 100%;
+        left: 0;
     }
 
 }

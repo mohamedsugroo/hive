@@ -31,6 +31,14 @@
     background-color: transparent;
  }
 
+ .mutedIcon {
+    background-image: url('/svgs/volume-mute.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 70%;
+    background-color: transparent;
+ }
+
  .fullscreenIcon {
     background-image: url('/svgs/fullscreen.svg');
     background-repeat: no-repeat;
